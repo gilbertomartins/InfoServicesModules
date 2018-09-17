@@ -20,11 +20,6 @@ void Module1::init()
     // In the init method you can access any module, even those
     // who were created after this instance.
     Module2 *module2 = InfoServices::get<Module2>();
-
-    if (!module2) {
-        qDebug() << "Module1::init() failed to get Module2 ref!!!!";
-    }
-
     module2->bar();
 
     m_module2 = module2;

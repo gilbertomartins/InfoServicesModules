@@ -16,12 +16,12 @@ public:
     template <typename T>
     static T* get()
     {
+        T *module = NULL;
         if(s_modules.contains(&typeid(T))) {
-            return static_cast<T*>(s_modules[&typeid(T)]);
-        } else {
-            qDebug() << "GET MODULE RETURN NULL!!!";
-            return NULL;
+            module = static_cast<T*>(s_modules[&typeid(T)]);
         }
+        Q_ASSERT(module);
+        return module;
     }
 
     /**
